@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="particles-js"></div>
+
+    <section id="accueil" class="hidden">
+        <h1>Bienvenue sur mon portfolio</h1>
+    </section>
+    
+    <section id="projets">
+        <h2>Mes Projets</h2>
+        <div class="projects-container"></div>
+    </section>
+    
+    
+    <section id="competences" class="hidden">
+        <h2>Mes Compétences</h2>
+        <div class="skills-slider">
+            <div class="skills-track">
+                <!-- Les compétences seront ajoutées ici dynamiquement -->
+            </div>
+        </div>
+        
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <h2>Contactez-moi</h2>
+        <form id="contact-form" action="https://formsubmit.co/johanpiou9@gmail.com" method="POST">
+            <div class="input-group">
+                <input type="text" name="name" required>
+                <label>Nom</label>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-group">
+                <textarea name="message" required></textarea>
+                <label>Votre message</label>
+            </div>
+            <input type="hidden" name="_next" value="https://ton-site.com/merci.html">
+            <input type="hidden" name="_captcha" value="false">
+            <button type="submit">Envoyer</button>
+        </form>
+        
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
