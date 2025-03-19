@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 50, // Ajuste le décalage si besoin
+                    top: targetElement.offsetTop - 50,
                     behavior: "smooth"
                 });
             }
@@ -58,9 +58,9 @@ window.addEventListener("scroll", function() {
 });
 
 const phrases = [
-    "Bienvenue sur mon portfolio",
-    "Je suis développeur",
-    "Découvrez mes projets !"
+    "Bienvenue sur mon portfolio ",
+    "Je suis développeur ",
+    "Découvrez mes projets ! "
 ];
 
 let phraseIndex = 0;
