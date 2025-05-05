@@ -113,55 +113,95 @@ const projects = [
     {
         name: "ASCII Art Web",
         image: "images/ascii-art-web.png",
+        video: "videos/ascii-art-web.mp4",
         link: "https://zone01normandie.org/git/jpiou/ascii-art-web.git"
     },
     {
         name: "Net-Cat",
         image: "images/servers.png",
+        video: "/videos/net-cat.mp4",
         link: "https://zone01normandie.org/git/jpiou/net-cat.git"
     },
     {
         name: "Groupie Tracker",
         image: "images/groupie-tracker.png",
+        video: "videos/groupie-tracker.mp4",
         link: "https://zone01normandie.org/git/sroberge/groupie-tracker"
     },
     {
         name: "Forum",
         image: "images/forum.png",
+        video: "videos/forum.mp4",
         link: "https://zone01normandie.org/git/jpiou/forum.git"
     },
     {
         name: "Make-Your-Game",
         image: "images/myg.png",
+        video: "videos/ascii-art-web.mp4",
         link: "https://zone01normandie.org/git/jpiou/make-your-game"
     },
     {
         name: "Lem-in",
         image: "images/ant.png",
+        video: "videos/ascii-art-web.mp4",
         link: "https://zone01normandie.org/git/jpiou/lem-in"
     }
 ];
 
 function loadProjects() {
     const container = document.querySelector(".projects-container");
-    container.innerHTML = ""; // Nettoie avant d'ajouter les projets
+    container.innerHTML = "";
+
+    const preview = document.getElementById("project-preview");
+    const video = document.getElementById("preview-video");
+
+    let hoveredCard = null;
 
     projects.forEach((project, index) => {
         const projectElement = document.createElement("div");
         projectElement.classList.add("project-card");
+
         projectElement.innerHTML = `
             <img src="${project.image}" alt="${project.name}">
             <h3>${project.name}</h3>
             <a href="${project.link}" target="_blank">Voir le code</a>
         `;
+
         container.appendChild(projectElement);
 
-        // Ajout de l'animation après un délai
+        projectElement.addEventListener("mouseenter", () => {
+            hoveredCard = projectElement;
+            video.src = project.video;
+            preview.classList.add("show");
+        });
+
+        projectElement.addEventListener("mouseleave", () => {
+            setTimeout(() => {
+                if (!preview.matches(":hover") && hoveredCard !== document.querySelector(".project-card:hover")) {
+                    video.pause();
+                    video.src = "";
+                    preview.classList.remove("show");
+                }
+            }, 100);
+        });
+
         setTimeout(() => {
             projectElement.classList.add("show");
-        }, index * 200); // Délai de 200ms entre chaque projet
+        }, index * 200);
+    });
+
+    // Si on quitte aussi la vidéo
+    preview.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+            if (!document.querySelector(".project-card:hover")) {
+                video.pause();
+                video.src = "";
+                preview.classList.remove("show");
+            }
+        }, 100);
     });
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     loadProjects();
