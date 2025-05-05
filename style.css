@@ -378,22 +378,53 @@ button:hover {
 }
 
 .project-card {
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.03);
+  }
+
+  .project-card video {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
 }
 
-.project-card video {
+.media-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px; 
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.project-image,
+.project-video {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    pointer-events: none; /* pour ne pas intercepter le hover */
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
 }
 
-.project-card:hover video {
+.project-video {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.project-card:hover .project-video {
     opacity: 1;
+    pointer-events: auto;
+}
+
+.project-card:hover .project-image {
+    opacity: 0;
+}
+
+.project-image {
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }

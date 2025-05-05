@@ -109,6 +109,7 @@ particlesJS("particles-js", {
     }
 });
 
+
 const projects = [
     {
         name: "ASCII Art Web",
@@ -137,13 +138,13 @@ const projects = [
     {
         name: "Make-Your-Game",
         image: "images/myg.png",
-        video: "videos/ascii-art-web.mp4",
+        video: "videos/make-your-game.mp4",
         link: "https://zone01normandie.org/git/jpiou/make-your-game"
     },
     {
         name: "Lem-in",
         image: "images/ant.png",
-        video: "videos/ascii-art-web.mp4",
+        video: "videos/lem-in.mp4",
         link: "https://zone01normandie.org/git/jpiou/lem-in"
     }
 ];
@@ -162,29 +163,58 @@ function loadProjects() {
         projectElement.classList.add("project-card");
 
         projectElement.innerHTML = `
-            <img src="${project.image}" alt="${project.name}">
-            <h3>${project.name}</h3>
-            <a href="${project.link}" target="_blank">Voir le code</a>
-        `;
+        <div class="media-wrapper">
+            <img src="${project.image}" alt="${project.name}" class="project-image">
+            <video src="${project.video}" class="project-video" muted loop></video>
+        </div>
+        <h3>${project.name}</h3>
+        <a href="${project.link}" target="_blank">Voir le code</a>
+    `;
+
+
+    const cardVideo = projectElement.querySelector(".project-video");
+
+    projectElement.addEventListener("mouseenter", () => {
+        cardVideo.play();
+    });
+    
+    projectElement.addEventListener("mouseleave", () => {
+        cardVideo.pause();
+        cardVideo.currentTime = 0;
+    });
+    
 
         container.appendChild(projectElement);
 
+        // Hover : juste pour montrer l'aperçu (pas pour jouer la vidéo)
+       // Ne rien faire au hover maintenant
         projectElement.addEventListener("mouseenter", () => {
             hoveredCard = projectElement;
-            video.src = project.video;
-            preview.classList.add("show");
         });
+        
 
         projectElement.addEventListener("mouseleave", () => {
             setTimeout(() => {
                 if (!preview.matches(":hover") && hoveredCard !== document.querySelector(".project-card:hover")) {
                     video.pause();
+                    video.removeAttribute("controls");
                     video.src = "";
                     preview.classList.remove("show");
                 }
             }, 100);
         });
 
+        // ▶️ Lecture de la vidéo uniquement au clic
+        projectElement.addEventListener("click", () => {
+            if (video.src !== project.video) {
+                video.src = project.video;
+            }
+            video.play();
+            video.setAttribute("controls", true);
+            preview.classList.add("show");
+        });        
+
+        // Apparition progressive
         setTimeout(() => {
             projectElement.classList.add("show");
         }, index * 200);
@@ -195,6 +225,7 @@ function loadProjects() {
         setTimeout(() => {
             if (!document.querySelector(".project-card:hover")) {
                 video.pause();
+                video.removeAttribute("controls");
                 video.src = "";
                 preview.classList.remove("show");
             }
@@ -202,19 +233,15 @@ function loadProjects() {
     });
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
     loadProjects();
-    
-    // Attendre un petit moment que les projets soient bien ajoutés au DOM
+
     setTimeout(() => {
         const projects = document.querySelectorAll(".project-card");
-        console.log("Nombre de projets détectés :", projects.length);
-        
+
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    console.log("Projet visible :", entry.target);
                     entry.target.classList.add("show");
                     observer.unobserve(entry.target);
                 }
@@ -222,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { threshold: 0.2 });
 
         projects.forEach(project => observer.observe(project));
-    }, 500); // Délai pour éviter tout problème d'affichage
+    }, 500);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
