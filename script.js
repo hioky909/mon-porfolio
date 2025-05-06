@@ -115,7 +115,7 @@ const projects = [
         name: "ASCII Art Web",
         image: "images/ascii-art-web.png",
         video: "videos/ascii-art-web.mp4",
-        link: "https://zone01normandie.org/git/jpiou/ascii-art-web.git"
+        link: "https://github.com/hioky909/ascii-art-web"
     },
     {
         name: "Net-Cat",
@@ -133,7 +133,7 @@ const projects = [
         name: "Forum",
         image: "images/forum.png",
         video: "videos/forum.mp4",
-        link: "https://zone01normandie.org/git/jpiou/forum.git"
+        link: "https://github.com/hioky909/forum"
     },
     {
         name: "Make-Your-Game",
@@ -145,7 +145,7 @@ const projects = [
         name: "Lem-in",
         image: "images/ant.png",
         video: "videos/lem-in.mp4",
-        link: "https://zone01normandie.org/git/jpiou/lem-in"
+        link: "https://github.com/hioky909/lem-in"
     }
 ];
 
