@@ -121,13 +121,13 @@ const projects = [
         name: "Net-Cat",
         image: "images/servers.png",
         video: "/videos/net-cat.mp4",
-        link: "https://zone01normandie.org/git/jpiou/net-cat.git"
+        link: "https://github.com/hioky909/net-cat"
     },
     {
         name: "Groupie Tracker",
         image: "images/groupie-tracker.png",
         video: "videos/groupie-tracker.mp4",
-        link: "https://zone01normandie.org/git/sroberge/groupie-tracker"
+        link: "https://github.com/hioky909/groupie-trackers"
     },
     {
         name: "Forum",
@@ -139,7 +139,7 @@ const projects = [
         name: "Make-Your-Game",
         image: "images/myg.png",
         video: "videos/make-your-game.mp4",
-        link: "https://zone01normandie.org/git/jpiou/make-your-game"
+        link: "https://github.com/hioky909/make-your-game"
     },
     {
         name: "Lem-in",
