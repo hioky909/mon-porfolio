@@ -68,7 +68,7 @@ section {
     z-index: -1;
     position: absolute; /* Pour pouvoir le positionner précisément */           /* Aligné à gauche */
     top: 15%;             /* Facultatif, le mettre en haut */
-    width: 40vh;       /* Réduction de la taille */
+    width: 30vh;       /* Réduction de la taille */
     height: auto;       /* Garde le ratio si c'est une image */
 }
 
@@ -427,4 +427,51 @@ button:hover {
     object-fit: cover;
     object-position: center;
     display: block;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+#contact-form {
+    width: 100%;
+    max-width: 600px; 
+}
+
+.linkedin-link {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.linkedin-link:hover {
+    transform: scale(1.1);
+}
+
+.linkedin-logo {
+    width: 40px;
+    height: auto;
+}
+
+.github-link {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.github-link:hover {
+    transform: scale(1.1);
+}
+
+.github-logo {
+    width: 40px;
+    height: auto;
+    filter: brightness(0) invert(1); /* Pour rendre le logo blanc sur fond noir */
 }

@@ -40,33 +40,44 @@
         <h2>Mes Compétences</h2>
         <div class="skills-slider">
             <div class="skills-track">
-                <!-- Les compétences seront ajoutées ici dynamiquement -->
             </div>
         </div>
         
     </section>
+
     
     <section id="contact" class="contact-section">
         <h2>Contactez-moi</h2>
-        <form id="contact-form" action="https://formsubmit.co/johanpiou9@gmail.com" method="POST">
-            <div class="input-group">
-                <input type="text" name="name" required>
-                <label>Nom</label>
-            </div>
-            <div class="input-group">
-                <input type="email" name="email" required>
-                <label>Email</label>
-            </div>
-            <div class="input-group">
-                <textarea name="message" required></textarea>
-                <label>Votre message</label>
-            </div>
-            <input type="hidden" name="_next" value="https://hioky909.github.io/mon-porfolio/merci.html">
-            <input type="hidden" name="_captcha" value="false">
-            <button type="submit">Envoyer</button>
-        </form>
-        
+        <div class="contact-wrapper">
+            <a href="https://www.linkedin.com/in/johan-piou-094328341/" target="_blank" class="linkedin-link">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="linkedin-logo">
+            </a>
+            <a href="https://github.com/hioky909" target="_blank" class="github-link">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-logo">
+            </a>
+            
+            <form id="contact-form" action="https://formsubmit.co/johanpiou9@gmail.com" method="POST">
+                <div class="input-group">
+                    <input type="text" name="name" required>
+                    <label>Nom</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" required></textarea>
+                    <label>Votre message</label>
+                </div>
+                <input type="hidden" name="_next" value="https://hioky909.github.io/mon-porfolio/merci.html">
+                <input type="hidden" name="_captcha" value="false">
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
     </section>
+    
+    
+      
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
